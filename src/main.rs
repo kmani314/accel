@@ -1,10 +1,6 @@
-mod entry;
-mod tag;
-mod parse;
+mod cli;
+use cli::run_cli;
 
 fn main() {
-    let input: String = "<terms !anki Terms to know></terms ------------->".to_string();
-    let tokens = parse::lex_string(&input);
-    let tags = parse::parse(&tokens);
-    println!("{:?}", tags);
+    print!("{:#?}", run_cli());
 }
