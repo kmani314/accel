@@ -17,13 +17,6 @@ pub fn run_cli() -> ArgMatches<'static> {
                 .required(true)
             )
             .arg(
-                Arg::with_name("output")
-                .short("o")
-                .long("output")
-                .required(false)
-                .default_value("deck.csv")
-            )
-            .arg(
                 Arg::with_name("pattern")
                 .short("p")
                 .long("pattern")
@@ -37,6 +30,22 @@ pub fn run_cli() -> ArgMatches<'static> {
                 .takes_value(true)
                 .required(true)
                 .multiple(true)
+            )
+            // List delimiter
+            .arg(
+                Arg::with_name("delimiter")
+                .short("d")
+                .long("delimiter")
+                .takes_value(true)
+                .required(false)
+                .default_value("\n")
+            )
+            .arg(
+                Arg::with_name("output")
+                .short("o")
+                .long("output")
+                .required(false)
+                .default_value("deck.csv")
             )
         )
         .get_matches()
